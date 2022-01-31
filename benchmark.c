@@ -58,7 +58,7 @@ int main()
   if (writeToFile != 'n' && writeToFile != 'N')
   {
     output = fopen("./benchmark.csv", "w+");
-    fputs("Ocupacao,Tempo(usec)\n", output);
+    fputs("Ocupacao(%),Tempo(usec)\n", output);
   }
 
   char *keys[TABLE_SIZE];
@@ -76,7 +76,8 @@ int main()
     if (output)
     {
       char printToFile[100];
-      sprintf(printToFile, "%0.2f,%d\n", percent, results[i]);
+      int percentToInt = percent * 100;
+      sprintf(printToFile, "%d,%d\n", percentToInt, results[i]);
       fputs(printToFile, output);
     }
     percent += 0.1;
