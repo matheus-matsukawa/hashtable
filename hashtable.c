@@ -10,7 +10,7 @@ unsigned int hash(const char *key)
     // um número primo é utilizado para tentar reduzir as colisões
     for (unsigned int i = 0; i < key_len; ++i)
     {
-        value = value * 17 + key[i];
+        value = value * 37 + key[i];
     }
 
     // garante que 0 <= value < TABLE_SIZE
